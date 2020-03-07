@@ -5,3 +5,5 @@ mask.py 构建面部器官的mask以及皮肤的mask。
 
 makeup. py 实现磨皮、美白、眼睛提亮美妆算法。
 
+organ_swich.py 主要实现五官迁移算法。
+

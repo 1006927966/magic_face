@@ -39,13 +39,15 @@ def get_organ_mask(img, tag):
     if tag == 'nose':
         white = [nose]
     if tag == 'mouth':
-        white = [white]
+        white = [mouth]
     if tag == 'eyebrow':
         white = [left_brow, right_brow]
     for group in white:
         points = landmarks[group]
         draw_convex_hull(mask, points, 1)
     mask = np.array([mask]*3).transpose(1, 2, 0)
+    mask = (cv2.GaussianBlur(mask, (11, 11), 0) > 0) * 1.0
+    mask = cv2.GaussianBlur(mask, (11, 11), 0)
     return mask
 
 
